@@ -15,11 +15,11 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function countCats(backyard) {
-  let sum = 0;
-  let find = 0;
+  let sum = 0; //all cats
+  let find = 0; // cat in one Aray
   for (let i = 0; i < backyard.length; i++) {
-      find = backyard[i].filter(i => i == '^^').length;
-      sum += find;
+      find = backyard[i].filter(i => i == '^^').length; // check every array for cat
+      sum += find; //increment if find
       }
   return sum;
 }
