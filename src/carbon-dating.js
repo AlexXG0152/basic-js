@@ -19,10 +19,10 @@ const HALF_LIFE_PERIOD = 5730;
  */
 export default function dateSample(sampleActivity) {
   if (sampleActivity <= 0 || sampleActivity > 15  || typeof sampleActivity != 'string' || isNaN(sampleActivity)) {
-      return false;
+      return false; // reality and typeof check sampleActivity value 
   }
   else {
       let age = Math.ceil((1 / (0.693 / HALF_LIFE_PERIOD)) * Math.log(MODERN_ACTIVITY / Number(sampleActivity)));
-      return age;
+      return age; // calculating by formula from article and Internet
   }
 }
