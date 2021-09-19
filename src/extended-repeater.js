@@ -16,13 +16,13 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function repeater(str, options) {
+  // set default values 
   let separator = options.separator || '+';
   let addition = options.addition === null ? 'null' : options.addition === false ? 'false' : options.addition || "";
   let additionSeparator = options.additionSeparator || '|';
   let repeatTimes = options.repeatTimes || 1;
   let additionRepeatTimes = options.additionRepeatTimes;
-  console.log(str, addition, additionSeparator, repeatTimes, separator, additionRepeatTimes);
-
+  // set template
   let newStr = (`${str}${(addition + additionSeparator).repeat((additionRepeatTimes)-1)}${(addition)}${separator}`).repeat(repeatTimes)
-  return newStr.slice(0, (newStr.length)-(separator).length);
+  return newStr.slice(0, (newStr.length)-(separator).length); //turn repeater
 }
