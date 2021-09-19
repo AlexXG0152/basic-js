@@ -13,8 +13,21 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default class DepthCalculator {
-  calculateDepth(/* arr */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+  
+    calculateDepth(arr) {
+      
+        let count = 0;
+        let current = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (typeof arr[i] == 'object') { // check i type, if Array => recursive run method
+                current = this.calculateDepth(arr[i]);
+            if (current > count) { // counting with replace values
+                count = current;
+                }
+            }
+        }
+        return count + 1; // +1 because start Array must be counted too
+    }
 }
+
+
